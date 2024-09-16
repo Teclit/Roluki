@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 :root {
-  --primary-color: #04ed04;
+  --primary-color: #272727;
   --secondary-color: #119017;
-  --dark-color: #00400b;
+  --dark-color: #7d6753;
   --light-color: #f4f4f4;
   --success-color: #5cb85c;
   --error-color: #d9534f;
