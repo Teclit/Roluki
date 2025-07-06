@@ -1,0 +1,65 @@
+<section class="container tigrinya-alphabet bg-gray-50 py-8 rounded-lg shadow-md" id="tigrinya-alphabet">
+  <h2 class="md text-center my-2 text-3xl font-semibold text-gray-800"> Tigrinya Alphabets : ፊደላት ትግርኛ </h2>
+
+  <div class="view-toggle">
+    <button (click)="toggleView()" class="toggle-button">
+      {{ showCarousel ? 'Show Grid View' : 'Show Carousel View' }}
+    </button>
+  </div>
+
+  <!-- Carousel View -->
+  @if (showCarousel) {
+    <div class="carousel-container">
+      <div class="carousel">
+        @for (character of visibleCharacters; track character) {
+          <div class="character-carousel">
+            <h3 class="phonetic-group">{{ character.phoneticGroup }}</h3>
+            <div class="character-row">
+              @for (char of character.tigrinya; track char; let i = $index) {
+                <div class="character-cell-large">
+                  <div class="tigrinya-char-large">{{ char }}</div>
+                  @if (character.latinTransliteration[i]) {
+                    <div class="latin-char-large">
+                      {{ character.latinTransliteration[i] }}
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+      <button (click)="previousCharacter()" class="carousel-button previous">
+        <span class="arrow">&#8249;</span>
+      </button>
+      <button (click)="nextCharacter()" class="carousel-button next">
+        <span class="arrow">&#8250;</span>
+      </button>
+    </div>
+  }
+
+  <!-- Grid View -->
+  @if (showGrid) {
+    <div class="alphabet-grid">
+      @for (character of alphabetData; track character) {
+        <div class="character-card hover:shadow-xl">
+          <div class="character-group">
+            <h3 class="text-gray-700">{{ character.phoneticGroup }}</h3>
+            <div class="character-row">
+              @for (char of character.tigrinya; track char; let i = $index) {
+                <div class="character-cell">
+                  <div class="tigrinya-char">{{ char }}</div>
+                  @if (character.latinTransliteration[i]) {
+                    <div class="latin-char text-gray-600">
+                      {{ character.latinTransliteration[i] }}
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</section>

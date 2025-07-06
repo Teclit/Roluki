@@ -1,0 +1,16 @@
+<div class="carousel-container">
+  <div class="carousel">
+    @for (alphabet of visibleImages; track alphabet) {
+      <div class="card">
+        <h4>{{ alphabet.name }}</h4>
+        <p>{{ alphabet.alt }}</p> <!-- Afficher la translittération -->
+      </div>
+    }
+  </div>
+  <button (click)="previousImages()" class="carousel-button previous">
+    <span class="arrow">&#8249;</span>
+  </button>
+  <button (click)="nextImages()" class="carousel-button next">
+    <span class="arrow">&#8250;</span>
+  </button>
+</div>
