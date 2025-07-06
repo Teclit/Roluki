@@ -1,4 +1,323 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-color-brown : #604652;
+  --bg-light-color-brown:#735557;
+  --bg-color-sage : #97866A;
+  --bg-color-beige :#D29F80;
+  --rgb-color-brown : rgb(96, 70, 82);
+  --rgb-light-color-brown: rgb(115, 85, 87);
+  --rgb-color-sage:rgb(151, 134, 106);
+  --rgb-color-beige :rgb(210, 159, 128);
+
+  --primary-color: #604652;
+  --secondary-color: #272727;
+  --dark-color: #191919;
+  --light-color: #f3f2ee;
+  --white-color: #ffffff;
+  --warning-color: #ffc857;
+  --success-color: #017550;
+  --error-color: #cc112e;
+  --primary-color-transparent: rgb(96, 70, 82, 0.2);
+  --primary-color-opaque: rgb(96, 70, 82, 0.95)
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: "Abyssinica SIL", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--secondary-color);
+  line-height: 1.6;
+  background-color: var(--light-color);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+img {
+  width: 100%;
+}
+
+
+code,
+pre {
+  background: var(--secondary-color);
+  color: var(--white-color);
+  padding: 10px;
+}
+
+.hidden {
+  visibility: hidden;
+  height: 0;
+}
+
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+.showcase {
+  height: 100vh;
+  padding: 0 20px;
+}
+
+.card {
+  background-color: var(--secondary-color);
+  color: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px var(--white-color) solid;
+}
+
+.btn:hover {
+  transform: scale(0.98);
+}
+
+/* Backgrounds & colored buttons */
+.bg-primary,
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.bg-secondary,
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+
+.bg-dark,
+.btn-dark {
+  background-color: var(--dark-color);
+  color: var(--white-color);
+}
+
+.bg-light,
+.btn-light {
+  background-color: var(--light-color);
+  color: var(--secondary-color);
+}
+
+.bg-primary a,
+.btn-primary a,
+.bg-secondary a,
+.btn-secondary a,
+.bg-dark a,
+.btn-dark a {
+  color: var(--light-color);
+}
+
+/* Text colors */
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.text-dark {
+  color: var(--dark-color);
+}
+
+.text-light {
+  color: var(--light-color);
+}
+
+/* Text sizes */
+.lead {
+  font-size: 20px;
+}
+
+.sm {
+  font-size: 1rem;
+}
+
+.md {
+  font-size: 2rem;
+}
+
+.lg {
+  font-size: 3rem;
+}
+
+.xl {
+  font-size: 4rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Alert */
+.alert {
+  background-color: var(--light-color);
+  padding: 10px 20px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.alert i {
+  margin-right: 10px;
+}
+
+.alert-success {
+  background-color: var(--success-color);
+  color: var(--light-color);
+}
+
+.alert-error {
+  background-color: var(--error-color);
+  color: var(--light-color);
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Margin */
+.my-1 {
+  margin: 1rem 0;
+}
+
+.my-2 {
+  margin: 1.5rem 0;
+}
+
+.my-3 {
+  margin: 2rem 0;
+}
+
+.my-4 {
+  margin: 3rem 0;
+}
+
+.my-5 {
+  margin: 4rem 0;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.m-2 {
+  margin: 1.5rem;
+}
+
+.m-3 {
+  margin: 2rem;
+}
+
+.m-4 {
+  margin: 3rem;
+}
+
+.m-5 {
+  margin: 4rem;
+}
+
+/* Padding */
+.py-1 {
+  padding: 1rem 0;
+}
+
+.py-2 {
+  padding: 1.5rem 0;
+}
+
+.py-3 {
+  padding: 2rem 0;
+}
+
+.py-4 {
+  padding: 3rem 0;
+}
+
+.py-5 {
+  padding: 4rem 0;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 1.5rem;
+}
+
+.p-3 {
+  padding: 2rem;
+}
+
+.p-4 {
+  padding: 3rem;
+}
+
+.p-5 {
+  padding: 4rem;
+}
