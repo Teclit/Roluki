@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { tigrinyaAlphabet, TigrinyaCharacter } from '../../../geez';
+import { tigrinyaAlphabet, TigrinyaCharacter } from '../../../../geez';
 
 @Component({
   selector: 'app-tigrinya-alphabet',

@@ -1,12 +1,6 @@
-import { Component, Input, HostListener } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
-
-interface NavItem {
-  id: string;
-  fragment: string;
-  label: string;
-}
+import {Component, HostListener, Input} from '@angular/core';
+import {RouterLink} from '@angular/router';
+import {NAV_ITEMS, NavItem} from '../../shared/navigation-data';
 
 @Component({
   selector: 'app-navbar',
@@ -22,14 +16,7 @@ export class NavbarComponent {
   activeLink = 'home';
   menuOpen = false;
 
-  navItems: NavItem[] = [
-    { id: 'home', fragment: 'home', label: 'Home' },
-    { id: 'alphabet', fragment: 'alphabet', label: 'Alphabet' },
-    { id: 'practice', fragment: 'practice', label: 'Practice' },
-    { id: 'resource', fragment: 'resource', label: 'Resources' },
-    { id: 'about', fragment: 'about', label: 'About' },
-    { id: 'contact', fragment: 'contact', label: 'Contact' }
-  ];
+  navItems: NavItem[] = NAV_ITEMS;
 
   setActiveLink(link: string, event: Event): void {
     event.preventDefault();

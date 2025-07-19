@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SOCIAL_LINKS} from '../../../data';
+import {SOCIAL_LINKS} from '../../../../data';
 
 @Component({
   selector: 'app-home',
