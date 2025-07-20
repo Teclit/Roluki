@@ -1,0 +1,25 @@
+<!-- Footer -->
+<div class="footer py-5">
+  <div class="container grid grid-3">
+    <div>
+      <h1>{{ title }}</h1>
+      <p>Copyright &copy; {{ startingYear }} - {{ year }}</p>
+    </div>
+    <nav>
+      <ul>
+        @for (item of navItems; track item) {
+          <li>
+            <a routerLink="/"
+               [fragment]="item.fragment"
+               [class.active]="activeLink === item.id"
+               (click)="setActiveLink(item.id, $event)">{{ item.label }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+    <div class="social">
+      <a [href]="githubUrl"><i class="fa-brands fa-github fa-2xl"></i></a>
+      <a [href]="linkedInUrl"><i class="fa-brands fa-linkedin fa-2xl"></i></a>
+    </div>
+  </div>
+</div>

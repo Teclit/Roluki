@@ -1,6 +1,6 @@
 import {Component, Inject, Input, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import {SkillImage} from '../../../data';
+import {SkillImage} from '../../../../data';
 
 @Component({
   selector: 'app-card',

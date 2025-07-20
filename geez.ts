@@ -61,8 +61,8 @@ export const tigrinyaAlphabet: TigrinyaCharacter[] = [
     order: 9
   },
   {
-    tigrinya: ["ቈ", "", "ቊ", "ቋ", "ቌ", "ቍ", ""],
-    latinTransliteration: ["que", "", "qui", "qua", "quie", "qW", ""],
+    tigrinya: ["ቈ", "ቊ", "ቋ", "ቌ", "ቍ"],
+    latinTransliteration: ["que", "qui", "qua", "quie", "qW"],
     phoneticGroup: "qu-sounds",
     order: 10
   },
@@ -73,8 +73,8 @@ export const tigrinyaAlphabet: TigrinyaCharacter[] = [
     order: 11
   },
   {
-    tigrinya: ["ቘ", "", "ቚ", "ቛ", "ቜ", "ቝ", ""],
-    latinTransliteration: ["Que", "", "Qui", "Qua", "Quie", "QW", ""],
+    tigrinya: ["ቘ", "ቚ", "ቛ", "ቜ", "ቝ"],
+    latinTransliteration: ["Que", "Qui", "Qua", "Quie", "QW"],
     phoneticGroup: "qu-sounds-alternative",
     order: 12
   },
@@ -109,8 +109,8 @@ export const tigrinyaAlphabet: TigrinyaCharacter[] = [
     order: 17
   },
   {
-    tigrinya: ["ኈ", "", "ኊ", "ኋ", "ኌ", "ኍ", ""],
-    latinTransliteration: ["hue", "", "hui", "hua", "huie", "hW", ""],
+    tigrinya: ["ኈ", "ኊ", "ኋ", "ኌ", "ኍ"],
+    latinTransliteration: ["hue", "hui", "hua", "huie", "hW"],
     phoneticGroup: "hu-sounds",
     order: 18
   },
@@ -139,8 +139,8 @@ export const tigrinyaAlphabet: TigrinyaCharacter[] = [
     order: 22
   },
   {
-    tigrinya: ["ኰ", "", "ኲ", "ኳ", "ኴ", "ኵ", ""],
-    latinTransliteration: ["kue", "", "kui", "kua", "kuie", "kW", ""],
+    tigrinya: ["ኰ", "ኲ", "ኳ", "ኴ", "ኵ"],
+    latinTransliteration: ["kue", "kui", "kua", "kuie", "kW"],
     phoneticGroup: "ku-sounds",
     order: 23
   },
@@ -151,8 +151,8 @@ export const tigrinyaAlphabet: TigrinyaCharacter[] = [
     order: 24
   },
   {
-    tigrinya: ["ዀ", "", "ዂ", "ዃ", "ዄ", "ዅ", ""],
-    latinTransliteration: ["Kue", "", "Kui", "Kua", "Kuie", "KW", ""],
+    tigrinya: ["ዀ", "ዂ", "ዃ", "ዄ", "ዅ"],
+    latinTransliteration: ["Kue", "Kui", "Kua", "Kuie", "KW"],
     phoneticGroup: "khu-sounds",
     order: 25
   },
@@ -205,8 +205,8 @@ export const tigrinyaAlphabet: TigrinyaCharacter[] = [
     order: 33
   },
   {
-    tigrinya: ["ጐ", "", "ጒ", "ጓ", "ጔ", "ጕ", ""],
-    latinTransliteration: ["gue", "", "gui", "gua", "guie", "gW", ""],
+    tigrinya: ["ጐ", "ጒ", "ጓ", "ጔ", "ጕ"],
+    latinTransliteration: ["gue", "gui", "gua", "guie", "gW"],
     phoneticGroup: "gu-sounds",
     order: 33
   },

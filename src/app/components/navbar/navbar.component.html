@@ -3,6 +3,7 @@
   <div class="container flex">
     <h1 class="logo">{{ title }}</h1>
     <div class="burger-menu"
+      [class.active]="menuOpen"
       role="button"
       tabindex="0"
       (click)="toggleMenu()"
