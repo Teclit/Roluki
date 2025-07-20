@@ -1,72 +1,53 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { filter, interval } from 'rxjs';
 import { tigrinyaAlphabet, TigrinyaCharacter } from '../../../../geez';
+
+enum ViewMode {
+  Carousel = 'carousel',
+  Grid = 'grid',
+}
 
 @Component({
   selector: 'app-tigrinya-alphabet',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tigrinya-alphabet.component.html',
-  styleUrl: './tigrinya-alphabet.component.css'
+  styleUrl: './tigrinya-alphabet.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TigrinyaAlphabetComponent implements OnInit, OnDestroy {
-  alphabetData: TigrinyaCharacter[] = [];
-  visibleCharacters: TigrinyaCharacter[] = [];
-  currentIndex = 0;
-  private intervalId: any;
-  showCarousel = true;
-  showGrid = false;
+export class TigrinyaAlphabetComponent {
+  readonly alphabetData: TigrinyaCharacter[] = tigrinyaAlphabet;
 
-  constructor() {}
+  readonly currentIndex = signal(0);
+  readonly currentView = signal<ViewMode>(ViewMode.Carousel);
 
-  ngOnInit(): void {
-    this.alphabetData = tigrinyaAlphabet;
-    this.updateVisibleCharacters();
-    this.startAutoRotation();
+  readonly ViewMode = ViewMode;
+  readonly isCarouselView = computed(() => this.currentView() === ViewMode.Carousel);
+  readonly isGridView = computed(() => this.currentView() === ViewMode.Grid);
+  readonly currentCharacter = computed(() => this.alphabetData[this.currentIndex()]);
 
-    // Ensure initial state is correct
-    this.showCarousel = true;
-    this.showGrid = false;
-  }
-
-  ngOnDestroy(): void {
-    this.stopAutoRotation();
+  constructor() {
+    interval(5000)
+      .pipe(
+        takeUntilDestroyed(),
+        filter(() => this.isCarouselView())
+      )
+      .subscribe(() => {
+        this.nextCharacter();
+      });
   }
 
   previousCharacter(): void {
-    this.currentIndex = (this.currentIndex - 1 + this.alphabetData.length) % this.alphabetData.length;
-    this.updateVisibleCharacters();
+    this.currentIndex.update(i => (i - 1 + this.alphabetData.length) % this.alphabetData.length);
   }
 
   nextCharacter(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.alphabetData.length;
-    this.updateVisibleCharacters();
-  }
-
-  private updateVisibleCharacters(): void {
-    this.visibleCharacters = [this.alphabetData[this.currentIndex]];
-  }
-
-  private startAutoRotation(): void {
-    this.intervalId = setInterval(() => {
-      this.nextCharacter();
-    }, 5000);
-  }
-
-  private stopAutoRotation(): void {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
+    this.currentIndex.update(i => (i + 1) % this.alphabetData.length);
   }
 
   toggleView(): void {
-    this.showCarousel = !this.showCarousel;
-    this.showGrid = !this.showGrid;
-
-    if (this.showCarousel) {
-      this.startAutoRotation();
-    } else {
-      this.stopAutoRotation();
-    }
+    this.currentView.update(view => view === ViewMode.Carousel ? ViewMode.Grid : ViewMode.Carousel);
   }
 }
