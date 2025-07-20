@@ -10,7 +10,7 @@
 }
 
 .toggle-button {
-  background-color: var(--primary-color, #1a659e);
+  background-color: var(--primary-color, #817763);
   color: white;
   border: none;
   border-radius: 4px;
@@ -21,17 +21,17 @@
 }
 
 .toggle-button:hover {
-  background-color: var(--secondary-color, #0d4c7a);
+  background-color: var(--secondary-color, #65686a);
 }
 
 /* Carousel View */
 .carousel-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 2rem auto;
   overflow: hidden;
   position: relative;
-  padding: 0 40px;
+  padding: 40px;
   height: 400px;
 }
 
@@ -82,9 +82,9 @@
 }
 
 .character-cell-large:hover {
-  background: radial-gradient(circle at top, var(--primary-color, #1a659e) 50%, white 90%);
+  background: radial-gradient(circle at top, var(--primary-color, #735557) 50%, white 90%);
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 24px rgba(26, 101, 158, 0.6);
+  box-shadow: 0 12px 24px rgb(115, 85, 87);
 }
 
 .character-cell-large:hover .tigrinya-char-large,
@@ -108,31 +108,61 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: var(--primary-color, #1a659e);
-  color: white;
-  border: none;
+  color: var(--primary-color);
+  background-color: var(--white-color);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 2;
-  transition: background-color 0.3s;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
-.carousel-button:hover {
-  background-color: var(--secondary-color, #0d4c7a);
+.carousel-button:hover,
+.carousel-button:focus {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.carousel-button:active {
+  transform: translateY(-50%) scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-button.previous {
-  left: 10px;
+  left: 12px;
 }
 
 .carousel-button.next {
-  right: 10px;
+  right: 12px;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (hover: none) {
+  .carousel-button:hover {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+  }
+}
+
 
 .arrow {
   font-size: 1.5rem;
@@ -193,11 +223,11 @@
 }
 
 .character-cell:hover {
-  background: radial-gradient(circle at top, var(--primary-color, #1a659e) 50%, white 70%);
+  background: radial-gradient(circle at top, var(--primary-color, #735557) 50%, white 70%);
   color: white;
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(26, 101, 158, 0.6), 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-top: 1px solid var(--primary-color, #1a659e);
+  box-shadow: 0 8px 20px rgb(115, 85, 87), 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--primary-color, #735557);
   cursor: pointer;
 }
 

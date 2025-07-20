@@ -20,3 +20,6 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'contact', fragment: 'contact', label: 'Contact' }
 ];
 
+// Alias for NAV_ITEMS for backward compatibility
+export const ENGLISH_NAV_ITEMS = NAV_ITEMS;
+
